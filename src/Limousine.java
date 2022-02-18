@@ -1,9 +1,9 @@
 public class Limousine {
 	String noImmatriculation;
-	float reservoir;
+	int reservoir;
 	String couleur;
 	
-	public Limousine(String no, float r, String c)
+	public Limousine(String no, int r, String c)
 	{
 		noImmatriculation = no;
 		reservoir = r;
@@ -11,8 +11,8 @@ public class Limousine {
 	}
 	public void affiche_info()
 	{
-		System.out.print(noImmatriculation);
-		System.out.print(reservoir);
-		System.out.print(couleur);
+		System.out.print("Immatriculation: " + noImmatriculation + ", ");
+		System.out.print("Reservoir: " + reservoir + ", ");
+		System.out.print("Couleur: " + couleur + "\n");
 	}
 }
