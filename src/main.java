@@ -10,7 +10,7 @@ public class main {
 	
 	public static Compagnie compagnie;
 	
-	public static void main(String args[]) throws IOException  {
+	public static void main(String args[]) throws IOException, MyException  {
 		
 		compagnie = new Compagnie();
 		
@@ -42,7 +42,7 @@ public class main {
 		while(!mode.equals("3")) {
 			System.out.print("======================[MENU PRINCIPAL]=======================\n");
 			System.out.print("[1] Afficher les limousines d'un chauffeur.\n");
-			System.out.print("[2] Afficher les caractéristique des trajets.\n");
+			System.out.print("[2] Afficher les caractÃ©ristique des trajets.\n");
 			System.out.print("[3] Quitter.\n");
 			System.out.print("=============================================================\n");
 			
@@ -52,6 +52,8 @@ public class main {
 				System.out.print("Tapez un identifiant de chauffeur:\n");
 				String id = in.next();
 				List<Limousine> limousines = compagnie.getLimousinesByChauffeurID(id);
+				if(limousines.size() == 0)
+					throw new MyException(id);
 				System.out.print("========================[LIMOUSINES]=========================\n");
 				for(Limousine limousine: limousines)
 					limousine.affiche_info();
